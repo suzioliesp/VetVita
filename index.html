@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>VetVita - Seu pet em boas patas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,117 +11,137 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
-  >
+  />
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Ícones (social) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- HEADER + HERO -->
+  <!-- HEADER -->
   <header class="header">
-    <nav class="navbar container">
-      <div class="nav__logo">
-        <img src="img/logo-vetvita.png" alt="Logo VetVita" class="nav__logo-img">
-        <span class="nav__logo-text">VetVita</span>
+    <div class="container header__content">
+      <div class="header__logo">
+        <!-- troque o src pela sua logo -->
+        <img src="img/logo-vetvita.png" alt="VetVita" class="logo-img" />
       </div>
 
-      <ul class="nav__list">
-        <li class="nav__item"><a href="#home" class="nav__link nav__link--active">Home</a></li>
-        <li class="nav__item"><a href="#empresa" class="nav__link">Empresa</a></li>
-        <li class="nav__item"><a href="#contato" class="nav__link">Contato</a></li>
-      </ul>
+      <nav class="header__nav" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#empresa" class="nav-link">Empresa</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
 
-      <button class="nav__toggle" aria-label="Abrir menu">
+      <button class="header__toggle" id="nav-toggle" aria-label="Abrir menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
-    </nav>
-
-    <section class="hero container" id="home">
-      <div class="hero__text">
-        <h1>Seu pet em boas patas.</h1>
-        <p>
-          Na VetVita, acreditamos que cada animal merece cuidado, carinho e atenção de qualidade.
-          Nosso hospital veterinário oferece serviços completos, desde consultas e vacinas até
-          cirurgias e exames especializados, garantindo a saúde e o bem-estar do seu pet.
-        </p>
-      </div>
-
-      <div class="hero__image-wrapper">
-        <div class="hero__shape"></div>
-        <img src="img/cat-hero.png" alt="Gato simpático" class="hero__image">
-      </div>
-    </section>
+    </div>
   </header>
 
   <main>
-    <!-- BLOCO DE CADASTRO -->
-    <section class="section" id="empresa">
-      <div class="signup-card container">
-        <div class="signup-card__info">
-          <h2>Cadastre-se para acessar nossos<br>serviços completos.</h2>
+    <!-- HERO / SEÇÃO INICIAL -->
+    <section class="hero" id="home">
+      <div class="container hero__content">
+        <div class="hero__text">
+          <h1>Seu pet em boas patas.</h1>
           <p>
-            Caso ainda não esteja inscrito, considere se cadastrar em nosso site para ter acesso
-            a todos os nossos serviços e agendar consultas, exames e muito mais.
-          </p>
-          <p class="signup-card__small">
-            Já tem uma conta? <a href="#login" class="link-inline">Entre aqui.</a>
+            Na VetVita, acreditamos que cada animal merece cuidado, carinho e
+            atenção de qualidade. Nosso hospital veterinário oferece serviços
+            completos, desde consultas e vacinas até cirurgias e exames
+            especializados, garantindo a saúde e o bem-estar do seu pet.
           </p>
         </div>
 
-        <div class="signup-card__form">
-          <form id="form-cadastro">
-            <div class="form-field">
-              <label for="nome">Informe seu nome</label>
-              <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+        <div class="hero__image-wrapper">
+          <div class="hero__shape hero__shape--big"></div>
+          <div class="hero__shape hero__shape--small"></div>
+          <!-- troque o src pela imagem do gato do layout -->
+          <img src="img/hero-cat.png" alt="Gato VetVita" class="hero__image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO DE CADASTRO -->
+    <section class="signup">
+      <div class="container">
+        <div class="signup__card">
+          <div class="signup__info">
+            <h2>Cadastre-se para acessar nossos serviços completos.</h2>
+            <p>
+              Caso ainda não esteja inscrito, considere se cadastrar em nosso
+              site para ter acesso a todos os nossos serviços e agendar
+              consultas, exames e muito mais.
+            </p>
+            <p class="signup__login-hint">
+              Já tem uma conta? <a href="#">Entre aqui.</a>
+            </p>
+
+            <div class="signup__brand">
+              <span class="paw-icon">🐾</span>
+              <span class="brand-text">VetVita</span>
             </div>
+          </div>
 
-            <div class="form-field">
-              <label for="email">Informe seu e-mail</label>
-              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
-            </div>
+          <div class="signup__form-area">
+            <form class="signup__form" id="signup-form">
+              <div class="form-group">
+                <label for="nome">Informe seu nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" />
+              </div>
 
-            <div class="form-field">
-              <label for="senha">Crie uma senha</label>
-              <input type="password" id="senha" name="senha" placeholder="Sua senha segura">
-            </div>
+              <div class="form-group">
+                <label for="email">Informe seu email</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@email.com" />
+              </div>
 
-            <button type="submit" class="btn-primary">Cadastre-se já</button>
-          </form>
+              <div class="form-group">
+                <label for="senha">Crie uma senha</label>
+                <input type="password" id="senha" name="senha" placeholder="********" />
+              </div>
 
-          <div class="signup-card__brand">
-            <img src="img/logo-paw.png" alt="Pata VetVita" class="signup-card__brand-img">
-            <span class="signup-card__brand-text">VetVita</span>
+              <button type="submit" class="btn-primary">
+                Cadastre-se já
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONSULTAS -->
-    <section class="section section--services">
+    <!-- CONSULTAS VETERINÁRIAS -->
+    <section class="services" id="empresa">
       <div class="container">
         <h2 class="section-title">Consultas veterinárias</h2>
 
-        <div class="cards-row">
-          <article class="service-card service-card--orange">
+        <div class="cards-grid">
+          <article class="card">
             <h3>Consulta clínica geral</h3>
             <p>Avaliação completa da saúde do pet.</p>
             <button class="btn-secondary">Agendar</button>
           </article>
 
-          <article class="service-card service-card--orange">
+          <article class="card">
             <h3>Consulta de emergência</h3>
             <p>Atendimento rápido para casos urgentes.</p>
             <button class="btn-secondary">Agendar</button>
           </article>
 
-          <article class="service-card service-card--orange">
+          <article class="card">
             <h3>Consulta especializada em dermatologia</h3>
             <p>Para tratar alergias, coceiras e problemas de pele.</p>
             <button class="btn-secondary">Agendar</button>
           </article>
 
-          <article class="service-card service-card--orange">
+          <article class="card">
             <h3>Consulta clínica geral</h3>
             <p>Acompanhamento de animais idosos.</p>
             <button class="btn-secondary">Agendar</button>
@@ -130,94 +150,52 @@
       </div>
     </section>
 
-    <!-- EXAMES -->
-    <section class="section section--services">
+    <!-- EXAMES ESPECIALIZADOS -->
+    <section class="services services--green">
       <div class="container">
         <h2 class="section-title">Exames especializados</h2>
 
-        <div class="cards-row">
-          <article class="service-card service-card--green">
+        <div class="cards-grid">
+          <article class="card card--green">
             <h3>Exame de sangue completo</h3>
             <p>Para detectar infecções e avaliar a saúde geral.</p>
-            <button class="btn-secondary">Agendar</button>
+            <button class="btn-secondary btn-secondary--green">Agendar</button>
           </article>
 
-          <article class="service-card service-card--green">
+          <article class="card card--green">
             <h3>Ultrassonografia abdominal</h3>
             <p>Visualização interna de órgãos.</p>
-            <button class="btn-secondary">Agendar</button>
+            <button class="btn-secondary btn-secondary--green">Agendar</button>
           </article>
 
-          <article class="service-card service-card--green">
+          <article class="card card--green">
             <h3>Raio-X digital</h3>
-            <p>Para tratar alergias, coceiras e problemas de pele.</p>
-            <button class="btn-secondary">Agendar</button>
+            <p>Para investigar fraturas e alterações ósseas.</p>
+            <button class="btn-secondary btn-secondary--green">Agendar</button>
           </article>
 
-          <article class="service-card service-card--green">
+          <article class="card card--green">
             <h3>Eletrocardiograma (ECG)</h3>
             <p>Avaliação do ritmo cardíaco.</p>
-            <button class="btn-secondary">Agendar</button>
+            <button class="btn-secondary btn-secondary--green">Agendar</button>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- VACINAS -->
-    <section class="section section--services">
+    <!-- VACINAS COMUNS -->
+    <section class="services">
       <div class="container">
         <h2 class="section-title">Vacinas comuns</h2>
 
-        <div class="cards-row">
-          <article class="service-card service-card--beige">
+        <div class="cards-grid">
+          <article class="card">
             <h3>Vacina V8 ou V10 (para cães)</h3>
             <p>Proteção contra doenças virais graves.</p>
             <button class="btn-secondary">Agendar</button>
           </article>
 
-          <article class="service-card service-card--beige">
+          <article class="card">
             <h3>Vacina antirrábica</h3>
             <p>Obrigatória e essencial para todos os pets.</p>
-            <button class="btn-secondary">Agendar</button>
-          </article>
-
-          <article class="service-card service-card--beige">
-            <h3>Vacina tríplice felina (V3 ou V4)</h3>
-            <p>Proteção básica para gatos.</p>
-            <button class="btn-secondary">Agendar</button>
-          </article>
-
-          <article class="service-card service-card--beige">
-            <h3>Vacina contra giardíase</h3>
-            <p>Previne infecções intestinais.</p>
-            <button class="btn-secondary">Agendar</button>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER / CONTATO -->
-  <footer class="footer" id="contato">
-    <div class="footer__top">
-      <div class="footer__social">
-        <a href="#" aria-label="Facebook"><img src="img/icon-facebook.svg" alt=""></a>
-        <a href="#" aria-label="Instagram"><img src="img/icon-instagram.svg" alt=""></a>
-        <a href="#" aria-label="WhatsApp"><img src="img/icon-whatsapp.svg" alt=""></a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer__brand">
-        <img src="img/logo-paw.png" alt="Pata VetVita" class="footer__logo-img">
-        <span class="footer__logo-text">VetVita</span>
-      </div>
-      <p class="footer__copy">
-        © VetVita – todos os direitos reservados
-      </p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+            <button class="btn-secondary">Agend

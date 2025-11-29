@@ -1,65 +1,47 @@
-// MENU HAMBÚRGUER
-const navToggle = document.querySelector('.nav__toggle');
-const navList = document.querySelector('.nav__list');
-const navLinks = document.querySelectorAll('.nav__link');
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-if (navToggle && navList) {
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navList.classList.toggle('nav__list--open');
-  });
+  // Menu hambúrguer
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('nav-open');
+      navToggle.classList.toggle('open');
+    });
+  }
 
-  // Fecha o menu ao clicar em um link (mobile)
+  // Scroll suave e estado ativo dos links
   navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      navList.classList.remove('nav__list--open');
-      navToggle.classList.remove('open');
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      // fecha o menu no mobile
+      if (window.innerWidth <= 720 && navMenu.classList.contains('nav-open')) {
+        navMenu.classList.remove('nav-open');
+        navToggle.classList.remove('open');
+      }
+
+      navLinks.forEach((l) => l.classList.remove('active'));
+      link.classList.add('active');
     });
   });
-}
 
-// DESTACAR LINK ATIVO AO ROLAR
-const sections = document.querySelectorAll('main section, #home');
-const offsetHeader = 80; // altura aproximada do header
-
-window.addEventListener('scroll', () => {
-  const scrollPosition = window.scrollY + offsetHeader;
-
-  let activeId = null;
-
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    const top = rect.top + window.scrollY;
-    const bottom = top + section.offsetHeight;
-
-    if (scrollPosition >= top && scrollPosition < bottom) {
-      activeId = section.id;
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove('nav__link--active');
-    const href = link.getAttribute('href') || '';
-    if (activeId && href === `#${activeId}`) {
-      link.classList.add('nav__link--active');
-    }
-  });
+  // Placeholder de envio de formulário (por enquanto só exibe alerta)
+  const signupForm = document.getElementById('signup-form');
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Cadastro enviado! (aqui depois ligamos no Firebase 😉)');
+      signupForm.reset();
+    });
+  }
 });
-
-// FORMULÁRIO DE CADASTRO (placeholder por enquanto)
-const formCadastro = document.getElementById('form-cadastro');
-
-if (formCadastro) {
-  formCadastro.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nome = formCadastro.nome.value.trim();
-
-    alert(
-      nome
-        ? `Cadastro simulado para ${nome}. Em breve isso vai conversar com o Firebase 😉`
-        : 'Cadastro simulado. Em breve isso vai conversar com o Firebase 😉'
-    );
-
-    formCadastro.reset();
-  });
-}
